@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="form-group">
+    <input class="form-control" [(ngModel)]="name" name="name" placeholder="name" type="text">
+    <input class="form-control" [(ngModel)]="price" name="price" placeholder="price" type="number">
+    <input class="form-control" [(ngModel)]="description" name="description" placeholder="description" type="text">
+    <input class="form-control" [(ngModel)]="weightProduct" name="weightProduct" placeholder="weightProduct" type="number">
+    <input class="form-control" [(ngModel)]="categoryId" name="categoryId" placeholder="categoryId" type="number">
+  </div>
+  <button type="button"
+          class="btn btn-primary btn-create-course" (click)="addProduct()">Add product</button>
+</div>

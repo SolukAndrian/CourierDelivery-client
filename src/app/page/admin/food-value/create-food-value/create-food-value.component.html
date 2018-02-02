@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="form-group">
+    <input class="form-control" [(ngModel)]="proteins" name="proteins" placeholder="proteins" type="number">
+    <input class="form-control" [(ngModel)]="fats" name="fats" placeholder="fats" type="number">
+    <input class="form-control" [(ngModel)]="carbohydrates" name="carbohydrates" placeholder="carbohydrates" type="number">
+    <input class="form-control" [(ngModel)]="cal" name="cal" placeholder="cal" type="number">
+    <input class="form-control" [(ngModel)]="productId" name="productId" placeholder="productId" type="number">
+  </div>
+  <button type="button"
+          class="btn btn-primary btn-create-course" (click)="addFoodValue()">Add food Value</button>
+</div>
