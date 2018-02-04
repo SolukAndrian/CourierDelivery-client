@@ -1,0 +1,26 @@
+<div *ngFor="let category of this.categories"
+     [class.selected]="category === selectedCategory">
+  <div>{{category.name}}
+
+    <button type="button"
+            class="btn btn-danger" (click)="deleteCategory(category.categoryId)"><i class="fa fa-trash fa-fw"
+                                                                                    aria-hidden="true"></i></button>
+    <button type="button"
+            class="btn btn-warning" (click)="onSelect(category)"><i class="fa fa-edit fa-fw" aria-hidden="true"></i>
+    </button>
+
+  </div>
+</div>
+
+<div *ngIf="selectedCategory">
+  <h2>{{ selectedCategory.name | uppercase }} Details</h2>
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedCategory.name" placeholder="name">
+    </label>
+    <button type="button"
+            class="btn btn-primary btn-create-course" (click)="editCategory(selectedCategory.categoryId)"><i
+      class="fa fa-edit fa-fw" aria-hidden="true"></i> Change category
+    </button>
+  </div>
+</div>

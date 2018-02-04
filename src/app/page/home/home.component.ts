@@ -13,7 +13,6 @@ export class HomeComponent implements OnInit {
   public categories: CategoryDTO[] = [];
   public products: ProductDTO[] = [];
   errorMessage: string;
-  title = 'Tour of Heroes';
 
   constructor(private homeService: HomeService) {
   }

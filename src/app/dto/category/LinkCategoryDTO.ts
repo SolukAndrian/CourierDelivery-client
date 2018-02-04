@@ -3,12 +3,12 @@ import {Link} from "../link";
  * Created by Apple on 30.01.2018.
  */
 export class LinkCategoryDTO {
+  public categoryId: number;
   public name: string;
-  public self: Link;
 
 
-  constructor(name: string, self: Link) {
+  constructor(categoryId: number, name: string) {
+    this.categoryId = categoryId;
     this.name = name;
-    this.self = self;
   }
 }

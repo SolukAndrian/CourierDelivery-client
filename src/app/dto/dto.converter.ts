@@ -15,8 +15,7 @@ export class DTOConverter {
     return new ProductDTO(data.name, data.price, data.description, data.weightProduct, data.categoryId);
   }
   public static jsonToLinkCategory(data: any): LinkCategoryDTO {
-    const self: Link = DTOConverter.jsonToLink('self', data._links.self);
-    return new LinkCategoryDTO(data.name, self);
+    return new LinkCategoryDTO(data.categoryId, data.name);
   }
 
   public static jsonToLink(rel: string, data: any): Link {

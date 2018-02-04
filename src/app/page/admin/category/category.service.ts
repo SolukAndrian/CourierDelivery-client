@@ -11,6 +11,7 @@ import 'rxjs/add/observable/throw';
 import {DTOConverter} from '../../../dto/dto.converter';
 import {DeliveryService} from "../../../services/delivery.service";
 import {CategoryDTO} from "../../../dto/category/CategoryDTO";
+import {LinkCategoryDTO} from "../../../dto/category/LinkCategoryDTO";
 
 @Injectable()
 export class CategoryService {
@@ -22,21 +23,23 @@ export class CategoryService {
     return this.delivery.post('/api/admin/add/category', category).map((response: Response) => response.json());
   }
 
-  // public getCategories(): Observable<CategoryDTO[]> {
-  //   return this.delivery.get('/api/category/findAll').map((response: Response) =>
-  //     <CategoryDTO[]> DTOConverter.jsonArrayToCollection(DTOConverter.jsonToCategory, response.json()));
-  // }
-
   private handleError(error: Response) {
     console.error(error);
     return Observable.throw(error.json().error || 'Server error');
   }
-  //
-  // public deleteSelectedCard(cardLink: string) {
-  //   return this.delivery.delete(cardLink).map((response: Response) => console.log());
-  // }
-  //
-  // public updateSelectedCard(cardLink: string, category: CategoryDTO) {
-  //   return this.delivery.put(cardLink, card).map((response: Response) => console.log());
-  // }
+
+  public deleteCategory(categoryId: number) {
+    return this.delivery.delete('/api/admin/delete/category/'+categoryId).map((response: Response) => console.log());
+  }
+
+  getCategories(): Observable<LinkCategoryDTO[]> {
+    return this.delivery.get('/api/category/findAll')
+      .map((response: Response) => <LinkCategoryDTO[]> DTOConverter.jsonArrayToCollection(DTOConverter.jsonToLinkCategory, response.json()))
+      .catch(this.handleError);
+  }
+
+  editCategory(categoryId: number, category: CategoryDTO){
+    return this.delivery.put('/api/admin/update/category/' + categoryId, category)
+      .map((response: Response) => response.json());
+  }
 }

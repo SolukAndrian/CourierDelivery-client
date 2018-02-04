@@ -8,17 +8,19 @@ import {DeliveryService} from "../../../services/delivery.service";
 import {RouterModule} from "@angular/router";
 import {CategoryService} from "./category.service";
 import {CreateCategoryComponent} from "./create-category/create-category.component";
+import {ManageCategoryComponent} from "./manage-category/manage-category.component";
 
 @NgModule({
   imports: [
     FormsModule,
     CommonModule,
     RouterModule.forRoot([
-      {path: 'addCategory', component: CreateCategoryComponent}
+      {path: 'addCategory', component: CreateCategoryComponent},
+      {path: 'manageCategory', component: ManageCategoryComponent}
     ])
   ],
   exports: [],
-  declarations: [CreateCategoryComponent],
+  declarations: [CreateCategoryComponent, ManageCategoryComponent],
   providers: [CategoryService, DeliveryService],
 })
 
