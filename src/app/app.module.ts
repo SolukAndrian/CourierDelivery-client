@@ -10,10 +10,12 @@ import {HomeModule} from "./page/home/home.module";
 import {ProductModule} from "./page/admin/product/products.module";
 import {CategoryService} from "./page/admin/category/category.service";
 import {ProductsService} from "./page/admin/product/product-service";
+import {LoginModule} from "./page/authorization/login/login.module";
+import {LoginService} from "./page/authorization/login/login.service";
 
 @NgModule({
   declarations: [
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
     HttpModule,
@@ -21,11 +23,12 @@ import {ProductsService} from "./page/admin/product/product-service";
     CategoryModule,
     ProductModule,
     HomeModule,
+    LoginModule,
     RouterModule.forRoot([
       {path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: '**', redirectTo: 'home', pathMatch: 'full'}
     ])],
-  providers: [CategoryService, ProductsService, DeliveryService, HeaderService],
+  providers: [LoginService, CategoryService, ProductsService, DeliveryService, HeaderService],
   bootstrap: [HeaderComponent]
 })
 export class AppModule {  }

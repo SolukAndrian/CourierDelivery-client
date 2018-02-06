@@ -10,5 +10,6 @@ export const environment = {
   logger: {
     level: NgxLoggerLevel.DEBUG
   },
-  SERVER_ADDRESS: 'http://localhost:8080/'
+  SERVER_ADDRESS: 'http://localhost:8080/',
+  SITE_KEY: '6LeS2ykUAAAAAMB0_bP2UKSJgI1U5TU9r_al9ESP'
 };
